@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<nav>
+    <div class="row">
+        <div class="col-md-2 title"><h1 class="text-center"><a href="{% url 'home' %}" class="title_text">Skill-up</a></h1></div>
+
+        <div class="col-md-7 offset-md-3 text-right menu_items">
+            <div class="toggle"><i class="fa fa-bars menu" aria-hidden="true"></i></div>
+            <ul>
+                <li><a href="#">Welcome, {{ user.username }}</a></li>
+                <li><a href="{% url 'courses' %}">Browse Courses</a></li>
+                <li><a href="{% url 'profile' %}">Profile</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="row">
+    <div class="col-md-12 banner">
+        <table class="table">
+            <thead class="table_head">
+            <tr>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for topic in topics %}
+            <tr>
+                <td>{{ topic.title }}</td>
+                <td><iframe width="703" height="330" src="{{ topic.vid_url}}" frameborder="0" allowfullscreen ng-show="showvideo"></iframe></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+    {% endblock %}

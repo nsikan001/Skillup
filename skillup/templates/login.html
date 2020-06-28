@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<nav>
+    <div class="row">
+        <div class="col-md-2 title"><h1 class="text-center">Skill-up</h1></div>
+
+    </div>
+</nav>
+<div class=' mx-auto w-50 p-3'>
+    <div class='text-center text-default'><h2>Login</h2></div>
+    {% if msg %}
+    <div class="text-center text-danger">
+        {{ msg }}
+    </div>
+    {% endif %}
+    <form action="{% url 'login' %}" class='m-5' method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" class="form-control" name="username">
+        </div>
+        <div class="form-group">
+            <label for="username">Password:</label>
+            <input type="password" class="form-control" name="password">
+        </div>
+        <button class="contact_button" type="submit">Login</button>
+        <h5 class="to_signup">Not yet signed up?, signup <a href="{% url 'signup' %}">Here</a></h5>
+    </form>
+
+</div>
+
+
+
+{% endblock %}

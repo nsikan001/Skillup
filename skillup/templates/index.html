@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<nav>
+    <div class="row">
+        <div class="col-md-2 title"><h1 class="text-center"><a href="{% url 'index' %}" class="title_text">Skill-up</a>
+        </h1></div>
+        <div class="col-md-5 srch_form">
+            <form class="form-inline" method="GET" action="{% url 'search' %}">
+
+                <input type="text" name="search_term" class="srch" placeholder="Search for courses here ...">
+                <button class="contact_button">Send</button>
+            </form>
+        </div>
+        <div class="col-md-5 text-right menu_items">
+            <div class="toggle"><i class="fa fa-bars menu" aria-hidden="true"></i></div>
+            <ul>
+                <li><a href="{% url 'courses' %}">Browse Courses</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'signup' %}">Signup</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="row">
+    <div class="col-md-12 banner">
+        <h1 class="text-center">About Skillup</h1>
+        <div class="text-center banner-content">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A voluptates ipsum repellendus inventore corrupti
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A voluptates ipsum repellendus inventore corrupti
+            tenetu Lorem ipsum dolor sit amet, consectetur adipisicing elit. A voluptates ipsum repellendus inventore
+            corrupti tenetu Lorem ipsum dolor sit amet, consectetur adipisicing elit. A voluptates ipsum repellendus
+            inventore corrupti tenetu Lorem ipsum dolor sit amet, consectetur adipisicing elit. A voluptates ipsum
+            repellendus inventore corrupti tenetu tenetur, consequuntur eum sunt animi. Et ducimus doloribus odit eos.
+            Debitis expedita dolorum itaque ab adipisci corporis nulla culpa voluptate
+        </div>
+    </div>
+</div>
+<div class="row subjects section">
+    <div class="col-md-3 col-sm-12 col-xs-12">
+        <table class="table">
+            <thead class="table_head">
+            <tr>
+                <th scope="col">Architecture</th>
+            </tr>
+            </thead>
+            <tbody>
+            {%for subject in architecture %}
+            <tr>
+                <td><a href="{% url 'subject' subject.id %}">{{ subject.name }} </a></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-3 col-sm-12 col-xs-12">
+        <table class="table">
+            <thead class="table_head">
+            <tr>
+                <th scope="col">Computing</th>
+            </tr>
+            </thead>
+            <tbody>
+            {%for subject in computing %}
+            <tr>
+                <td><a href="{% url 'subject' subject.id %}">{{ subject.name }} </a></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-3 col-sm-12 col-xs-12">
+        <table class="table">
+            <thead class="table_head">
+            <tr>
+                <th scope="col">Photography</th>
+            </tr>
+            </thead>
+            <tbody>
+            {%for subject in photography %}
+            <tr>
+                <td><a href="{% url 'subject' subject.id %}">{{ subject.name }} </a></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-3 col-sm-12 col-xs-12">
+        <table class="table">
+            <thead class="table_head">
+            <tr>
+                <th scope="col">Business</th>
+            </tr>
+            </thead>
+            <tbody>
+            {%for subject in business %}
+            <tr>
+                <td><a href="{% url 'subject' subject.id %}">{{ subject.name }} </a></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="row contact section">
+    <div class="col-md-7 col-sm-12 col-xs-12 column">
+        <h2 class="text-center">Enquiry</h2>
+        <div class="text-center column_content">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A voluptates ipsum repellendus inventore corrupti
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A voluptates ipsum repellendus inventore corrupti
+            tenetu Lorem ipsum dolor sit amet, consectetur adipisicing elit. A voluptates ipsum repellendus inventore
+            corrupti tenetu Lorem ipsum dolor sit amet, consectetur adipisicing elit. A voluptates ipsum repellendus
+            inventore corrupti tenetu Lorem ipsum dolor sit amet, consectetur adipisicing elit. A voluptates ipsum
+            repellendus inventore corrupti tenetu tenetur, consequuntur eum sunt animi. Et ducimus doloribus odit eos.
+            Debitis expedita dolorum itaque ab adipisci corporis nulla culpa voluptate
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-12 col-xs-12 column">
+        <div class="contact_form">
+            <h2>Contact us</h2>
+            {% if message %}
+            <div class='text-center text-success'>
+                {{message}}
+            </div>
+            {% endif %}
+            <form class="column_content" action="{% url 'contact_message' %}" method="POST">
+                {% csrf_token %}
+                <input type="text" name="name" class="form_group" placeholder="Your name here ...">
+                <input type="text" name="email" class="form_group" placeholder="Your mail here ...">
+                <textarea class="form_group" name="message" placeholder="Your message here ..."></textarea>
+                <button class="contact_button">Send</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

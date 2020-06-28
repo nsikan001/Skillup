@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<nav>
+    <div class="row">
+        <div class="col-md-2 title"><h1 class="text-center"><a href="{% url 'admin_area' %}"
+                                                               class="title_text">Skill-up</a></h1></div>
+
+        <div class="col-md-10 text-right menu_items">
+            <div class="toggle"><i class="fa fa-bars menu" aria-hidden="true"></i></div>
+            <ul>
+                <li><a href="#">Welcome, {{ user.username }}</a></li>
+                <li><a href="{% url 'manage_courses' %}">manage Courses</a></li>
+                <li><a href="{% url 'contact_messages' %}">Contact messages</a></li>
+                <li><a href="{% url 'profile' %}">Profile</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="row">
+    <div class="col-md-12 banner">
+        <table class="table">
+        {% if message %}
+        <div class='text-center text-success'>
+            {{message}}
+        </div>
+        {% endif %}
+        <thead class="table_head">
+        <tr>
+
+            <th scope="col">Manage course topics</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for topic in topics %}
+        <tr>
+            <td>{{ topic.title }}</td>
+            <td><a class="btn table_head my_btn"
+                   href="{% url 'edit_topic' topic.id %}">Edit Topic</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
+</div>
+
+{% endblock %}

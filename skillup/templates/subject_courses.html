@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block content %}
+
+<nav>
+    <div class="row">
+        <div class="col-md-2 title"><h1 class="text-center"><a href="{% url 'index' %}" class="title_text">Skill-up</a></h1></div>
+        <div class="col-md-5 srch_form">
+            <form class="form-inline" method="GET" action="{% url 'search' %}">
+
+				<input type="text" name="search_term" class="srch" placeholder="Search for courses here ...">
+				<button class="contact_button">Send</button>
+			</form>
+        </div>
+        <div class="col-md-5 text-right menu_items">
+            <div class="toggle"><i class="fa fa-bars menu" aria-hidden="true"></i></div>
+            <ul>
+                <li><a href="{% url 'courses' %}">Browse Courses</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'signup' %}">Signup</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="row">
+    <div class="col-md-12 banner">
+
+        <div class="row">
+            {% for course in courses %}
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="card" style="width: 21rem;">
+                    <img src="{{ course.image_url }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ course.name }}</h5>
+                        <p class="card-text">{{ course.preview_text }}</p>
+                        <p class="card-text">{{ course.level }}</p>
+                        <a href="{% url 'enroll' course.id %}" class="btn btn-primary">Enroll</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

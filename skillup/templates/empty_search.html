@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<nav>
+    <div class="row">
+        <div class="col-md-2 title"><h1 class="text-center"><a href="{% url 'index' %}" class="title_text">Skill-up</a></h1></div>
+        <div class="col-md-5"><h3 class="text-right search_title">Matching courses for {{ search }}</h3></div>
+        <div class="col-md-5 text-right menu_items">
+            <div class="toggle"><i class="fa fa-bars menu" aria-hidden="true"></i></div>
+            <ul>
+                <li><a href="{% url 'courses' %}">Browse Courses</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'signup' %}">Signup</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="row search_results">
+<div class="col-md-12">
+    <h4 class="text-center">---------- No Matching Results For Your Search Query ---------- </h4>
+</div>
+</div>
+
+    {% endblock %}

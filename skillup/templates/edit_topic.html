@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<nav>
+    <div class="row">
+        <div class="col-md-2 title"><h1 class="text-center"><a href="{% url 'admin_area' %}"
+                                                               class="title_text">Skill-up</a>
+        </h1></div>
+
+        <div class="col-md-10 text-right menu_items">
+            <div class="toggle"><i class="fa fa-bars menu" aria-hidden="true"></i></div>
+            <ul>
+                <li><a href="#">Welcome, {{ user.username }}</a></li>
+                <li><a href="{% url 'manage_courses' %}">manage Courses</a></li>
+                <li><a href="{% url 'contact_messages' %}">Contact messages</a></li>
+                <li><a href="{% url 'profile' %}">Profile</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="row">
+    <div class="col-md-12 banner">
+        <h3 class="table_head">Edit Topic</h3>
+        {% if message %}
+        <div class='text-center text-success'>
+            {{message}}
+        </div>
+        {% endif %}
+        <form class='m-5' action="{% url 'edited_topic' edit_topic.id %}" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Course Title:</label>
+                <input type="text" class="form-control" name="title" value="{{ edit_topic.title }}">
+            </div>
+            <div class="form-group">
+                <label for="username">Video Url:</label>
+                <input type="text" class="form-control" name="vid_url" value="{{ edit_topic.vid_url }}">
+            </div>
+            <button class="contact_button" type="submit">Edit</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

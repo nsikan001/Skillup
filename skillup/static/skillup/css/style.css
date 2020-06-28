@@ -1,0 +1,184 @@
+nav{
+    background: #12475f;
+    width:100%;
+    height: auto;
+}
+
+ul{
+    width:80%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+ul li{
+    list-style-type:none;
+    display: inline-block;
+    padding: 20px;
+}
+
+.contact{
+    background: #12475f;
+    color: #fff;
+    border-radius:15px;
+}
+
+ul li a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.welcome{
+    color: #fff;
+}
+
+ul li a:hover{
+    background: #fff;
+    color: #00316b;
+    text-decoration: none;
+}
+
+.toggle{
+    width: 100%;
+    padding: 10px 20px;
+    background: 001f44;
+    text-align: right;
+    box-sizing: border-box;
+    color: #fff;
+    font-size:30px;
+    display: none;
+}
+
+.title{
+    color: #fff;
+    margin-top: 13px;
+}
+
+.title_text{
+    color: #fff;
+}
+
+.title_text:hover{
+    text-decoration: none;
+}
+
+.banner{
+    color: #12475f;
+}
+
+.table_head{
+    background: #12475f;
+    color: #fff;
+    text-align: center;
+}
+
+.to_signup{
+    margin-top: 13px;
+}
+
+.search_title{
+    margin-top: 40px;
+    margin-bottom: 40px;
+    color: #fff;
+}
+
+@media(max-width:768px){
+    .toggle{
+        display: block;
+    }
+
+    ul{
+        width: 100%;
+        display:none;
+    }
+
+    ul li{
+        display: block;
+        text-align: left;
+    }
+
+    .active{
+        display: block;
+    }
+}
+
+.banner{
+    margin-top: 30px;
+}
+
+.banner-content{
+    margin-top: 30px;
+    line-height: 32px;
+    font-size: 20px;
+}
+
+.section{
+    margin-top: 30px;
+}
+
+.subjects{
+    padding-top:30px;
+}
+
+.contact_form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 50px;
+}
+
+.srch_form{
+    margin-top: 22px;
+    margin-bottom: 10px;
+}
+
+.srch{
+    border-radius: 10px;
+    margin-bottom: 8px;
+    padding: 10px;
+    width: 80%;
+}
+
+.title{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.menu_items{
+    margin-top:20px;
+}
+
+.form_group{
+    border-radius: 10px;
+    margin-bottom: 18px;
+    padding: 15px;
+    width: 100%;
+}
+
+textarea.form_group{
+    height: 120px;
+}
+
+.contact_button{
+    background:#12475f;
+    padding: 12px 25px;
+    /*margin-left: 45%;*/
+    text-align: center;
+    color: #fff;
+}
+
+.column{
+    padding-top:35px;
+}
+
+.column_content{
+    margin-top: 35px;
+}
+
+.search_results{
+    margin-top: 30px;
+}
+
+.my_btn:hover{
+    background: #ddd;
+}
+
